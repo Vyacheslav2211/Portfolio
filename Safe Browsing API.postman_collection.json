@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "88086b58-14b9-40e4-86df-a713f8fed6cb",
+		"name": "Safe Browsing API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27326159",
+		"_collection_link": "https://speeding-resonance-280688.postman.co/workspace/the-course-of-further-education~7ed1f4b5-fab2-4d8d-a394-8ec77d16c76b/collection/27326159-88086b58-14b9-40e4-86df-a713f8fed6cb?action=share&source=collection_link&creator=27326159"
+	},
+	"item": [
+		{
+			"name": "Получение списков Safe Browsing",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{URL}}/v4/threatLists?key=9cd6b499-cd66-4847-9c6d-1837c9f1a700",
+					"protocol": "https",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"v4",
+						"threatLists"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "9cd6b499-cd66-4847-9c6d-1837c9f1a700"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lookup. Проверка по URL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"client\": {\r\n    \"clientId\": \"{string}\",\r\n    \"clientVersion\": \"{string}\"\r\n  },\r\n  \"threatInfo\": {\r\n    \"threatTypes\": [\"{enum}\"],\r\n    \"platformTypes\": [\"{enum}\"],\r\n    \"threatEntryTypes\": [\"{enum}\"],\r\n    \"threatEntries\": [\r\n      {\"url\": \"https://www.google.com\"}\r\n    ]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{URL}}/v4/threatMatches:find?key=9cd6b499-cd66-4847-9c6d-1837c9f1a700",
+					"protocol": "https",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"v4",
+						"threatMatches:find"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "9cd6b499-cd66-4847-9c6d-1837c9f1a700"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lookup. Проверка по URL 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"client\": {\r\n    \"clientId\": \"{string}\",\r\n    \"clientVersion\": \"{string}\"\r\n  },\r\n  \"threatInfo\": {\r\n    \"threatTypes\": [\"{enum}\"],\r\n    \"platformTypes\": [\"{enum}\"],\r\n    \"threatEntryTypes\": [\"{enum}\"],\r\n    \"threatEntries\": [\r\n      {\"url\": \"https://www.yandex.ru\"}\r\n    ]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{URL}}/v4/threatMatches:find?key=9cd6b499-cd66-4847-9c6d-1837c9f1a700",
+					"protocol": "https",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"v4",
+						"threatMatches:find"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "9cd6b499-cd66-4847-9c6d-1837c9f1a700"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "sba.yandex.net"
+		}
+	]
+}
